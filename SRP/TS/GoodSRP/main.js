@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var BankAccount_1 = require("./BankAccount");
+var InterestService_1 = require("./InterestService");
+var AccountRepository_1 = require("./AccountRepository");
+var NotificationService_1 = require("./NotificationService");
+var account = new BankAccount_1.BankAccount(10000);
+var interest = new InterestService_1.InterestService();
+var repo = new AccountRepository_1.AccountRepository();
+var notify = new NotificationService_1.NotificationService();
+account.deposit(interest.calculate(account.balance));
+repo.save();
+notify.send();
+console.log("Final Balance:", account.balance);
